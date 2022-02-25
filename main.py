@@ -1,16 +1,90 @@
-# This is a sample Python script.
+valid_menu_option = False
+menu_option = None
+while not valid_menu_option:
+    try:
+        menu_option = int(input('''
+1- ADMINISTRATIVO
+2- PACIENTE
+_:'''))
+        if menu_option in [1, 2]:
+            valid_menu_option = True
+        else:
+            print('Valor Inválido \n')
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    except:
+        print('Valor Inválido \n')
+
+if menu_option == 1:
+    valid_adm_menu_option = False
+    adm_menu_option = None
+    while not valid_adm_menu_option:
+        try:
+            adm_menu_option = int(input('''
+1- Cadastrar hospital
+2- Cadastrar médico
+3- Cadastrar quarto 
+4- Ver médicos
+5- Ver quartos
+6- Excluir médicos
+7- Excluir quarto
+8- Alterar médico
+_:'''))
+            if adm_menu_option in [1, 2, 3, 4, 5, 6, 7, 8]:
+                valid_adm_menu_option = True
+            else:
+                print('Valor Inválido \n')
+
+        except:
+            print('Valor Inválido \n')
+
+    if adm_menu_option == 1:
+        print('opção 1')
+    elif adm_menu_option == 2:
+        print('opção 2')
+    elif adm_menu_option == 3:
+        print('opção 3')
+    elif adm_menu_option == 4:
+        print('opção 4')
+    elif adm_menu_option == 5:
+        print('opção 5')
+    elif adm_menu_option == 6:
+        print('opção 6')
+    elif adm_menu_option == 7:
+        print('opção 7')
+    else:
+        print('opção 8')
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+elif menu_option == 2:
+    valid_paciente_menu_option = False
+    paciente_menu_option = None
+    while not valid_paciente_menu_option:
+        try:
+            paciente_menu_option = int(input('''
+1- Realizar pré-internação
+2- Ver meu pré check-in
+3- Cancelar internação
+4- Concluir internação
+5- Ver médicos disponíveis
+6- Ver quartos disponíveis
+_:'''))
+            if paciente_menu_option in [1, 2, 3, 4, 5, 6]:
+                valid_paciente_menu_option = True
+            else:
+                print('Valor Inválido \n')
 
+        except:
+            print('Valor Inválido \n')
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('estudantes')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if paciente_menu_option == 1:
+        print('opção 1')
+    elif paciente_menu_option == 2:
+        print('opção 2')
+    elif paciente_menu_option == 3:
+        print('opção 3')
+    elif paciente_menu_option == 4:
+        print('opção 4')
+    elif paciente_menu_option == 5:
+        print('opção 5')
+    else:
+        print('opção 6')
