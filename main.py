@@ -55,22 +55,42 @@ if menu_option == 1:
             except:
                 print('Valor Inválido \n')
 
-    if adm_menu_option == 1:
-        print('opção 1')
-    elif adm_menu_option == 2:
-        print('opção 2')
-    elif adm_menu_option == 3:
-        print('opção 3')
-    elif adm_menu_option == 4:
-        print('opção 4')
-    elif adm_menu_option == 5:
-        print('opção 5')
-    elif adm_menu_option == 6:
-        print('opção 6')
-    elif adm_menu_option == 7:
-        print('opção 7')
-    else:
-        print('opção 8')
+        if adm_menu_option == 1:
+            cadastro = list()
+            nome = input('Informe o nome do médico: ')
+            idade = input('Informe a idade do médico: ')
+            sexo = input('Informe o sexo do médico: ')
+            cpf = input('Informe o CPF do médico: ')
+            rg = input('Informe o RG do médico: ')
+            cep = input('Informe o CEP do médico: ')
+            crm = input('Informe o CRM do médico: ')
+            esp = input('Informe a especialidade do médico: ')
+            medico = Medico(usuario_id, nome, idade, sexo, cpf, rg, cep, crm, esp)
+            my_hospital.add_medicos(medico)
+            usuario_id += 1
+
+        elif adm_menu_option == 2:
+            print('opção 2')
+        elif adm_menu_option == 3:
+            my_hospital.ver_medicos()
+        elif adm_menu_option == 4:
+            print('opção 4')
+        elif adm_menu_option == 5:
+            print('opção 5')
+        elif adm_menu_option == 6:
+            print('opção 6')
+        elif adm_menu_option == 7:
+            print('opção 7')
+        elif adm_menu_option == 8:
+            while True:
+                novo_nome = input('Informe o novo nome do hospital: ').strip()
+                if novo_nome:
+                    my_hospital.set_name(novo_nome)
+                    break
+                else:
+                    print('Nome inválido! \n')
+        else:
+            print('Nome do hospital: ', my_hospital.get_name())
 
 
 elif menu_option == 2:
