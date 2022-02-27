@@ -21,6 +21,9 @@ class Hospital:
             for i in range(len(quartos)):
                 print(f'Quarto {i}: {quartos[i]}')
 
+    def add_medicos(self, medico):
+        self.medicos.append(medico)
+
     def get_medicos(self):
         return self.medicos
 
