@@ -1,5 +1,5 @@
 class Usuario:
-    def __init__(self, id, nome, idade, sexo, cpf, rg, cep):
+    def __init__(self, id, nome, idade, sexo, cpf, rg, cep, email):
         self.id = id
         self.nome = nome
         self.idade = idade
@@ -7,6 +7,7 @@ class Usuario:
         self.cpf = cpf
         self.rg = rg
         self.cep = cep
+        self.email = email
 
 
     def get_id(self):
@@ -29,6 +30,9 @@ class Usuario:
 
     def get_cep(self):
         return self.cep
+    
+    def get_email(self):
+        return self.email
 
     def set_nome(self, nome):
         self.nome = nome
@@ -47,6 +51,6 @@ class Usuario:
 
     def set_cep(self, cep):
         self.cep = cep
-
-
-
+    
+    def set_cep(self, email):
+        self.email = email
