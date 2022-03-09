@@ -23,8 +23,17 @@ class Hospital:
             for i in range(len(quartos)):
                 print(f'Quarto {i}: {quartos[i]}')
 
-    def add_medicos(self, medico):
+    def get_medico(self, id):
+        for medico in medicos:
+            if medico.get_id() == id:
+                return medico;
+
+    def add_medico(self, medico):
         self.medicos.append(medico)
+
+    def delete_medico(self, medico):
+        self.medicos.remove(medico)
+
 
     def get_medicos(self):
         return self.medicos
