@@ -40,7 +40,7 @@ if menu_option == 1:
                                             '2- Cadastrar quarto \n' +
                                             '3- Ver médicos \n' +
                                             '4- Ver quartos \n' +
-                                            '5- Excluir médicos \n' +
+                                            '5- Excluir médico \n' +
                                             '6- Excluir quarto \n' +
                                             '7- Alterar médico \n' +
                                             '8- Alterar nome do hospital \n'+
@@ -66,7 +66,7 @@ if menu_option == 1:
             crm = input('Informe o CRM do médico: ')
             esp = input('Informe a especialidade do médico: ')
             medico = Medico(usuario_id, nome, idade, sexo, cpf, rg, cep, crm, esp)
-            my_hospital.add_medicos(medico)
+            my_hospital.add_medico(medico)
             usuario_id += 1
 
         elif adm_menu_option == 2:
@@ -76,7 +76,14 @@ if menu_option == 1:
         elif adm_menu_option == 4:
             print('opção 4')
         elif adm_menu_option == 5:
-            print('opção 5')
+            medico_id = input('ID DO MÉDICO: ')
+            medico = my_hospital.get_medico(medico_id)
+            if medico:
+                continuar = input('Você está prestes a excluir o médico {medico.get_nome} do Sistema! '
+                       '\n Tem certeza que deseja concluir esta ação? (S/N)').upper()
+                if continuar:
+                    my_hospital.delete_medico(medico)
+
         elif adm_menu_option == 6:
             print('opção 6')
         elif adm_menu_option == 7:
