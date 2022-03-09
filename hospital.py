@@ -1,8 +1,9 @@
 class Hospital:
-    def __init__(self, nome, quartos=[], medicos=[]):
+    def __init__(self, nome, quartos=[], medicos=[], pacientes=[]):
         self.nome = nome
         self.quartos = quartos
         self.medicos = medicos
+        self.pacientes = pacientes
 
 
     def ver_medicos(self):
