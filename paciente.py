@@ -1,7 +1,12 @@
 from usuario import Usuario
 
 class Paciente (Usuario):
-    def __init__(self, id, nome, idade, sexo, cpf, rg, cep, email, dataInternacao, dataNascimento,alergia,nacionalidade,naturalidade,nomePai,nomeMae,endereco,numEndereco,complemento,bairro,cidade,estado,pais,telefone,nomeAcompanhante,telefoneAcompnhante,estadocivil,religiao,profissao,empresa,pagamento):
+    def __init__(self, id, nome, idade, sexo, cpf, rg, cep, email,
+                 dataInternacao, dataNascimento,alergia,
+                 nacionalidade,naturalidade,nomePai,nomeMae,
+                 endereco,numEndereco,complemento,bairro,cidade,estado,pais,telefone,
+                 nomeAcompanhante,telefoneAcompnhante,
+                 estadocivil,religiao,profissao,empresa,pagamento, medico, quarto):
         
         self.dataInternacao=dataInternacao
         self.dataNascimento=dataNascimento
@@ -63,10 +68,7 @@ class Paciente (Usuario):
         
         def get_cidade(self):
             return self.cidade
-    
-        def get_cidade(self):
-            return self.cidade
-        
+
         def get_pais(self):
             return self.pais
         
