@@ -50,27 +50,10 @@ def cadastrar_paciente(hospital):
     cep = interface.leiaString('CEP: ')
     email = interface.leiaString('E-mail: ')
     dataInternacao = interface.leiaString('Data de Internação: ')
-    dataNascimento = interface.leiaString('Data de Nascimento: ')
-    alergia = interface.leiaString('Alergia (Digite "N" caso não tenha alergia): ')
-    nacionalidade = interface.leiaString('Nacionalidade: ')
-    naturalidade = interface.leiaString('Naturalidade: ')
-    nomePai = interface.leiaString('Nome do Pai: ')
-    nomeMae = interface.leiaString('Nome da Mãe: ')
-    endereco = interface.leiaString('Endereço: ')
-    numEndereco = interface.leiaString('Número da residência: ')
-    complemento = interface.leiaString('Complemento: ')
-    bairro = interface.leiaString('Bairro: ')
-    cidade = interface.leiaString('Cidade: ')
-    estado = interface.leiaString('Estado: ')
-    pais = interface.leiaString('País: ')
     telefone = interface.leiaString('Telefone: ')
     nomeAcompanhante = interface.leiaString('Nome do Acompanhante: ')
     telefoneAcompnhante = interface.leiaString('Telefone do Acompanhante: ')
-    estadocivil = interface.leiaString('Estado Civil: ')
-    religiao = interface.leiaString('Religião: ')
-    profissao = interface.leiaString('Profissão: ')
-    empresa = interface.leiaString('Empresa: ')
-    pagamento = interface.leiaString('Salário: ')
+    pagamento = interface.leiaString('Particular ou Convênio: ')
     print(interface.linha())
     print('Buscando Médicos... ')
     sleep(1)
@@ -83,10 +66,6 @@ def cadastrar_paciente(hospital):
     quarto = hospital.get_medico(interface.leiaInt('Número do Quarto desejado: '))
 
     paciente = Paciente(id, nome, idade, sexo, cpf, rg, cep, email,
-                    dataInternacao, dataNascimento,alergia,
-                    nacionalidade,naturalidade,nomePai,nomeMae,
-                    endereco,numEndereco,complemento,bairro,cidade,estado,pais,telefone,
-                    nomeAcompanhante,telefoneAcompnhante,
-                    estadocivil,religiao,profissao,empresa,pagamento,medico, quarto)
+                    dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
 
     hospital.add_paciente(paciente)
