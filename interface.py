@@ -3,16 +3,24 @@ def leiaInt (msg):
         try:
             n = int(input(msg))
         except (ValueError, TypeError):
-            print('\033[31mERRO: Por favor, digitar um número inteiro válido!.\033[m')
+            print('\033[31mERRO: Por favor, digitar um número inteiro válido!\033[m')
         except (KeyboardInterrupt):
             print('\n\033[31mUsuário preferiu não digitar esse número.\033[m')
             return 0
         else:
             return n
 
+def leiaString (msg):
+    while True:
+        texto = input(msg).strip()
+        if not texto:
+            print('\033[31mERRO: Por favor, digite um texto válido!\033[m')
+        else:
+            return texto
+
 
 def linha (tam=42):
-    return ('-')* tam
+    return '-' * tam
 
 def cabecalho(txt):
     print(linha())
