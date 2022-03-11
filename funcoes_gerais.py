@@ -69,3 +69,9 @@ def cadastrar_paciente(hospital):
                     dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
 
     hospital.add_paciente(paciente)
+
+    return paciente
+
+def consultar_cadastro_paciente(paciente):
+    if paciente:
+        paciente.ver_dados()
