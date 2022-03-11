@@ -52,5 +52,5 @@ class Usuario:
     def set_cep(self, cep):
         self.cep = cep
     
-    def set_cep(self, email):
+    def set_email(self, email):
         self.email = email
