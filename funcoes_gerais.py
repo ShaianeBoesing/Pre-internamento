@@ -63,7 +63,7 @@ def cadastrar_paciente(hospital):
     print('Buscando Quartos... ')
     sleep(1)
     hospital.ver_quartos()
-    quarto = hospital.get_medico(interface.leiaInt('Número do Quarto desejado: '))
+    quarto = hospital.get_quarto(interface.leiaInt('Número do Quarto desejado: '))
 
     paciente = Paciente(id, nome, idade, sexo, cpf, rg, cep, email,
                     dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
