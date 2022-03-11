@@ -25,8 +25,5 @@ class Quarto:
     def set_paciente(self, paciente):
         self.paciente = paciente
 
-    def ver_quarto(self):
-        if self.situacao == 'Livre':
-            print (f'QUARTO {self.numero}')
 
 
