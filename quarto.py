@@ -6,6 +6,13 @@ class Quarto:
         self.situacao = situacao
         self.paciente = None
 
+    def ver_dados(self):
+        if self.situacao == 'Livre':
+            print (f'QUARTO {self.numero}')
+
+    def get_numero(self):
+        return self.numero
+
     def get_situacao(self):
         return self.situacao
 
