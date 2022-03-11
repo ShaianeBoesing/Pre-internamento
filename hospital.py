@@ -12,7 +12,7 @@ class Hospital:
             print('Não há médicos cadastrados no sistema. Por favor, cadastre um médico. \n')
         else:
             for i in range(0, len(medicos), 1):
-                medicos[i].ver_medico()
+                medicos[i].ver_dados()
 
 
     def ver_quartos(self):
@@ -21,7 +21,7 @@ class Hospital:
             print('Não há quartos cadastrados no sistema. Por favor, cadastre um quarto. \n')
         else:
             for i in range(0, len(quartos), 1):
-                quartos[i].ver_quarto()
+                quartos[i].ver_dados()
 
 
     def add_medico(self, medico):
