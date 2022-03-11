@@ -39,6 +39,9 @@ class Hospital:
     def get_quartos(self):
         return self.medicos
 
+    def get_pacientes(self):
+        return self.pacientes
+
     def get_medico(self, id):
         for medico in self.medicos:
             if medico.get_id() == id:

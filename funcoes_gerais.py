@@ -72,6 +72,9 @@ def cadastrar_paciente(hospital):
 
     return paciente
 
-def consultar_cadastro_paciente(paciente):
-    if paciente:
-        paciente.ver_dados()
+def consultar_cadastro_paciente(lista_pacientes):
+    paciente_cpf = interface.leiaString('Informe o CPF do paciente: ')
+    for paciente in lista_pacientes:
+        if paciente.get_cpf() == paciente_cpf:
+            paciente.ver_dados()
+            break
