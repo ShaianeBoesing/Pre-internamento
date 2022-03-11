@@ -6,7 +6,7 @@ class Medico(Usuario):
         self.crm = crm
         self.especialidade = especialidade
 
-    def ver_medico(self):
+    def ver_dados(self):
         print (f'MÉDICO {self.id} \n'
                f'Nome: {self.nome} \n'
                f'Especialidade: {self.especialidade} \n')
