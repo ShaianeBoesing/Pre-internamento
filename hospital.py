@@ -44,3 +44,8 @@ class Hospital:
             if medico.get_id() == id:
                 return medico;
 
+    def get_quarto(self, numero):
+        for quarto in self.quartos:
+            if quarto.get_numero() == numero:
+                return quarto;
+
