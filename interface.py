@@ -27,11 +27,11 @@ def cabecalho(txt):
     print (txt.center(42))
     print (linha())
     
-def menu (lista):
-    cabecalho ('PRÉ- INTERNAMENTO')
+def menu (lista, titulo):
+    cabecalho (titulo)
     c=1
     for item in lista:
-        print(f' \033[35m{c}\033[m -\033[34m{item}\033[m')
+        print(f' \033[35m{c}\033[m- \033[34m{item}\033[m')
         c+=1
     print(linha())        
     opc =leiaInt ('\033[32mSua Opção: \033[m')
