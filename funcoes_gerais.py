@@ -5,13 +5,14 @@ from quarto import Quarto
 from medico import Medico
 from paciente import Paciente
 
-
+medicos_disponiveis = ["1","2","3"]
+quartos_disponiveis = ["1","2","3"]
 
 def criar_hospital():
     hospital = Hospital()
     criar_medicos(hospital)
     criar_quartos(hospital)
-
+    
     return hospital
 
 def criar_medicos(hospital):
@@ -55,21 +56,28 @@ def cadastrar_paciente(hospital):
     telefoneAcompnhante = interface.leiaString('Telefone do Acompanhante: ')
     pagamento = interface.leiaString('Particular ou Convênio: ')
     print(interface.linha())
+
     print('Buscando Médicos... ')
     sleep(1)
     hospital.ver_medicos()
     medico = hospital.get_medico(interface.leiaInt('Código do Médico desejado: '))
+    while medico not in medicos_disponiveis:
+        print('\033[31mERRO: Código de médico inválido!\033[m')
+        medico = hospital.get_medico(interface.leiaInt('Código do Médico desejado: '))
     print(interface.linha())
+    
     print('Buscando Quartos... ')
     sleep(1)
     hospital.ver_quartos()
     quarto = hospital.get_quarto(interface.leiaInt('Número do Quarto desejado: '))
-
+    while quarto not in quartos_disponiveis:
+        print('\033[31mERRO: Código de quarto inválido!\033[m')
+        quarto = hospital.get_quarto(interface.leiaInt('Número do Quarto desejado: '))
     paciente = Paciente(id, nome, idade, sexo, cpf, rg, cep, email,
                     dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
 
     hospital.add_paciente(paciente)
-
+    print('\033[32mPré-Internamento realizado com sucesso! \033[m')
     return paciente
 
 def buscar_paciente(lista_pacientes):
