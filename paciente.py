@@ -46,6 +46,12 @@ class Paciente(Usuario):
     def get_pagamento(self):
         return self.pagamento
 
+    def get_medico(self):
+        return self.medico
+
+    def get_quarto(self):
+        return self.quarto
+
     def set_dataInternacao(self, dataInternacao):
         self.dataInternacao = dataInternacao
 
@@ -60,3 +66,9 @@ class Paciente(Usuario):
 
     def set_pagamento(self, pagamento):
         self.pagamento = pagamento
+
+    def set_medico(self, medico):
+        self.medico = medico
+
+    def set_quarto(self, quarto):
+        self.quarto = quarto
