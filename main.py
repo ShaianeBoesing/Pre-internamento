@@ -10,7 +10,7 @@ while True:
     resposta = interface.menu (['Cadastrar Paciente', 'Alterar Cadastro', 'Consultar Cadastro', 'Excluir Cadastro', 'Sair' ], 'PRÉ- INTERNAMENTO')
     if resposta==1:
         interface.cabecalho('Cadastrar Paciente')
-        lista_pacientes.append(cadastrar_paciente(hospital))
+        cadastrar_paciente(hospital)
     elif resposta==2:
         interface.cabecalho('Alterar Cadastro')
     elif resposta==3:
