@@ -7,7 +7,7 @@ hospital = criar_hospital()
 
 lista_pacientes = hospital.get_pacientes()
 while True:
-    resposta = interface.menu (['Cadastrar Paciente', 'Alterar Cadastro', 'Consultar Cadastro', 'Excluir Cadastro', 'Sair' ])
+    resposta = interface.menu (['Cadastrar Paciente', 'Alterar Cadastro', 'Consultar Cadastro', 'Excluir Cadastro', 'Sair' ], 'PRÉ- INTERNAMENTO')
     if resposta==1:
         interface.cabecalho('Cadastrar Paciente')
         lista_pacientes.append(cadastrar_paciente(hospital))
