@@ -2,6 +2,8 @@ import interface
 from funcoes_gerais import criar_hospital
 from funcoes_gerais import cadastrar_paciente
 from funcoes_gerais import consultar_cadastro_paciente
+from funcoes_gerais import buscar_paciente
+from funcoes_gerais import atualizar_cadastro_paciente
 
 hospital = criar_hospital()
 
@@ -13,6 +15,8 @@ while True:
         cadastrar_paciente(hospital)
     elif resposta==2:
         interface.cabecalho('Alterar Cadastro')
+        paciente = buscar_paciente(lista_pacientes)
+        atualizar_cadastro_paciente(hospital, paciente)
     elif resposta==3:
         interface.cabecalho ('Consultar Cadastro')
         consultar_cadastro_paciente(lista_pacientes)
