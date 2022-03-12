@@ -76,7 +76,6 @@ def buscar_paciente(lista_pacientes):
     paciente_cpf = interface.leiaString('Informe o CPF do paciente: ')
     for paciente in lista_pacientes:
         if paciente.get_cpf() == paciente_cpf:
-            print(len(lista_pacientes))
             return paciente
     else:
         print('Nenhum registro encontrado neste CPF')
@@ -136,3 +135,20 @@ def atualizar_cadastro_paciente(hospital, paciente):
 
         sleep(1)
 
+def excluir_cadastro_paciente(hospital, paciente):
+    while True:
+        opcao = interface.menu (['Sim', 'Não'], 'Deseja mesmo excluir o cadastro do paciente?')
+        sleep(1)
+        if opcao==1:
+            pacientes = hospital.pacientes
+            cpf = paciente.cpf
+            for i, p in enumerate(pacientes):
+                if cpf == p.get_cpf():
+                    pacientes.pop(i)
+                    print("Exclusão efetuada com sucesso!")
+            interface.cabecalho('Voltando ao menu inicial...')
+            break  
+        if opcao==2:
+            interface.cabecalho('Voltando ao menu inicial...')
+            break            
+        sleep(1)

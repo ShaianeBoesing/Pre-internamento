@@ -4,6 +4,7 @@ from funcoes_gerais import cadastrar_paciente
 from funcoes_gerais import consultar_cadastro_paciente
 from funcoes_gerais import buscar_paciente
 from funcoes_gerais import atualizar_cadastro_paciente
+from funcoes_gerais import excluir_cadastro_paciente
 
 hospital = criar_hospital()
 
@@ -23,6 +24,9 @@ while True:
         consultar_cadastro_paciente(paciente)
     elif resposta==4:
         interface.cabecalho('Excluir Cadastro')
+        paciente = buscar_paciente(lista_pacientes)
+        if paciente != False:
+            excluir_cadastro_paciente(hospital, paciente)
     elif resposta==5:
         interface.cabecalho('Saindo do Sistema...')
         break
