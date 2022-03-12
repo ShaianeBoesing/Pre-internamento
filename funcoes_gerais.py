@@ -72,9 +72,67 @@ def cadastrar_paciente(hospital):
 
     return paciente
 
-def consultar_cadastro_paciente(lista_pacientes):
+def buscar_paciente(lista_pacientes):
     paciente_cpf = interface.leiaString('Informe o CPF do paciente: ')
     for paciente in lista_pacientes:
         if paciente.get_cpf() == paciente_cpf:
-            paciente.ver_dados()
+            print(len(lista_pacientes))
+            return paciente
+    else:
+        print('Nenhum registro encontrado neste CPF')
+        return False
+
+def consultar_cadastro_paciente(paciente):
+    paciente.ver_dados()
+    sleep(1)
+
+def atualizar_cadastro_paciente(hospital, paciente):
+    while True:
+        opcao = interface.menu (['Dados Pessoais', 'Dados de Acompanhante', 'Informações de Contato', 'Dados da Internação', 'Sair'], 'O QUE DESEJA ALTERAR?')
+        if opcao==5:
+            interface.cabecalho('Voltando ao menu inicial...')
             break
+        if opcao==1:
+            nome = interface.leiaString('Nome: ')
+            idade = interface.leiaInt('Idade: ')
+            sexo = interface.leiaString('Sexo: ')
+
+            paciente.set_nome(nome)
+            paciente.set_idade(idade)
+            paciente.set_sexo(sexo)
+            print(len(hospital.pacientes))
+        elif opcao==2:
+            nomeAcompanhante = interface.leiaString('Nome do Acompanhante: ')
+            telefoneAcompnhante = interface.leiaString('Telefone do Acompanhante: ')
+
+            paciente.set_nomeAcompanhante(nomeAcompanhante)
+            paciente.set_telefoneAcompnhante(telefoneAcompnhante)
+        elif opcao==3:
+            cep = interface.leiaString('CEP: ')
+            telefone = interface.leiaString('Telefone: ')
+            email = interface.leiaString('E-mail: ')
+
+            paciente.set_cep(cep)
+            paciente.set_telefone(telefone)
+            paciente.set_email(email)
+        elif opcao==4:
+            dataInternacao = interface.leiaString('Data de Internação: ')
+            pagamento = interface.leiaString('Particular ou Convênio: ')
+            print(interface.linha())
+            print('Buscando Médicos... ')
+            sleep(1)
+            hospital.ver_medicos()
+            medico = hospital.get_medico(interface.leiaInt('Código do Médico desejado: '))
+            print(interface.linha())
+            print('Buscando Quartos... ')
+            sleep(1)
+            hospital.ver_quartos()
+            quarto = hospital.get_quarto(interface.leiaInt('Número do Quarto desejado: '))
+
+            paciente.set_dataInternacao(dataInternacao)
+            paciente.set_pagamento(pagamento)
+            paciente.set_medico(medico)
+            paciente.set_quarto(quarto)
+
+        sleep(1)
+
