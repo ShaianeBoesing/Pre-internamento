@@ -5,14 +5,14 @@ from quarto import Quarto
 from medico import Medico
 from paciente import Paciente
 
-medicos_disponiveis = ["1","2","3"]
-quartos_disponiveis = ["1","2","3"]
+medicos_disponiveis = [1,2,3]
+quartos_existentes = [1,2,3,4]
 
 def criar_hospital():
     hospital = Hospital()
     criar_medicos(hospital)
     criar_quartos(hospital)
-    
+
     return hospital
 
 def criar_medicos(hospital):
@@ -60,23 +60,37 @@ def cadastrar_paciente(hospital):
     print('Buscando Médicos... ')
     sleep(1)
     hospital.ver_medicos()
-    medico = hospital.get_medico(interface.leiaInt('Código do Médico desejado: '))
-    while medico not in medicos_disponiveis:
+    codigoMedico = interface.leiaInt('Código do Médico desejado: ')
+    while codigoMedico not in medicos_disponiveis:
         print('\033[31mERRO: Código de médico inválido!\033[m')
-        medico = hospital.get_medico(interface.leiaInt('Código do Médico desejado: '))
+        codigoMedico = interface.leiaInt('Código do Médico desejado: ')
+
+    medico = hospital.get_medico(codigoMedico)    
     print(interface.linha())
     
     print('Buscando Quartos... ')
     sleep(1)
     hospital.ver_quartos()
-    quarto = hospital.get_quarto(interface.leiaInt('Número do Quarto desejado: '))
-    while quarto not in quartos_disponiveis:
-        print('\033[31mERRO: Código de quarto inválido!\033[m')
-        quarto = hospital.get_quarto(interface.leiaInt('Número do Quarto desejado: '))
+
+    numeroQuarto = interface.leiaInt('Número do Quarto desejado: ')
+
+    while numeroQuarto not in quartos_existentes:
+        print('\033[31mERRO: Número do quarto inválido!\033[m')
+        numeroQuarto = interface.leiaInt('Número do Quarto desejado: ') 
+        quarto = hospital.get_quarto(numeroQuarto)
+        situacao = quarto.situacao
+        while situacao != "Livre":
+            print('\033[31mERRO: Quarto ocupado!\033[m')
+            numeroQuarto = interface.leiaInt('Número do Quarto desejado: ') 
+            quarto = hospital.get_quarto(numeroQuarto)
+            situacao = quarto.situacao
+    
+    quarto.set_situacao("Ocupado")
+    
     paciente = Paciente(id, nome, idade, sexo, cpf, rg, cep, email,
                     dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
-
     hospital.add_paciente(paciente)
+
     print('\033[32mPré-Internamento realizado com sucesso! \033[m')
     return paciente
 

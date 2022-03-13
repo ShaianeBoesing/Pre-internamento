@@ -1,10 +1,5 @@
 import interface
-from funcoes_gerais import criar_hospital
-from funcoes_gerais import cadastrar_paciente
-from funcoes_gerais import consultar_cadastro_paciente
-from funcoes_gerais import buscar_paciente
-from funcoes_gerais import atualizar_cadastro_paciente
-from funcoes_gerais import excluir_cadastro_paciente
+from funcoes_gerais import*
 
 hospital = criar_hospital()
 
