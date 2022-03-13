@@ -79,21 +79,22 @@ def cadastrar_paciente(hospital):
     sleep(1)
     hospital.ver_quartos()
 
-    numeroQuarto = interface.leiaInt('Número do Quarto desejado: ')
+    for p in hospital.pacientes:
+        if p.cpf == cpf:
+            print('\033[31mERRO: Erro! Já existe um cadastro neste CPF. Certifique-se de que não deseja apenas alterar seus dados.\033[m')
 
-    while numeroQuarto not in quartos_existentes:
-        print('\033[31mERRO: Número do quarto inválido!\033[m')
-        numeroQuarto = interface.leiaInt('Número do Quarto desejado: ') 
-        quarto = hospital.get_quarto(numeroQuarto)
-        situacao = quarto.situacao
-        while situacao != "Livre":
-            print('\033[31mERRO: Quarto ocupado!\033[m')
-            numeroQuarto = interface.leiaInt('Número do Quarto desejado: ') 
+    while True:
+        numeroQuarto = interface.leiaInt('Número do Quarto desejado: ')
+        if numeroQuarto not in quartos_existentes:
+            print('\033[31mERRO: Número do quarto inválido!\033[m')
+        else:
             quarto = hospital.get_quarto(numeroQuarto)
-            situacao = quarto.situacao
-    
-    quarto.set_situacao("Ocupado")
-    
+            while quarto.situacao != "Livre":
+                print('\033[31mERRO: Quarto ocupado!\033[m')
+            else:
+                quarto.set_situacao("Ocupado")
+                break
+
     paciente = Paciente(id, nome, idade, sexo, cpf, rg, cep, email,
                     dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
     hospital.add_paciente(paciente)
