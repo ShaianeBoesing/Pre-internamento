@@ -11,4 +11,14 @@ class Medico(Usuario):
                f'Nome: {self.nome} \n'
                f'Especialidade: {self.especialidade} \n')
 
+    def get_crm(self):
+        return self.crm
 
+    def get_especialidade(self):
+        return self.especialidade
+
+    def set_crm(self, crm):
+        self.crm = crm
+
+    def set_especialidade(self, especialidade):
+        self.especialidade = especialidade
