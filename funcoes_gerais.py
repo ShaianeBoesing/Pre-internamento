@@ -5,8 +5,8 @@ from quarto import Quarto
 from medico import Medico
 from paciente import Paciente
 
-medicos_disponiveis = [1,2,3]
-quartos_existentes = [1,2,3,4]
+medicos_disponiveis = []
+quartos_existentes = []
 
 def criar_hospital():
     hospital = Hospital()
@@ -30,6 +30,9 @@ def criar_medicos(hospital):
     hospital.add_medico(medico1)
     hospital.add_medico(medico2)
     hospital.add_medico(medico3)
+    medicos_disponiveis.append(medico1.get_id())
+    medicos_disponiveis.append(medico2.get_id())
+    medicos_disponiveis.append(medico3.get_id())
 
 def criar_quartos(hospital):
     quarto1 = Quarto(1, 'Livre')
@@ -41,6 +44,10 @@ def criar_quartos(hospital):
     hospital.add_quarto(quarto2)
     hospital.add_quarto(quarto3)
     hospital.add_quarto(quarto4)
+    quartos_existentes.append(quarto1.get_numero())
+    medicos_disponiveis.append(quarto2.get_numero())
+    medicos_disponiveis.append(quarto3.get_numero())
+    medicos_disponiveis.append(quarto4.get_numero())
 
 def cadastrar_paciente(hospital):
     nome = interface.leiaString('Nome: ')
