@@ -27,8 +27,8 @@ class Hospital:
     def add_medico(self, medico):
         self.medicos.append(medico)
 
-    def add_quarto(self, medico):
-        self.quartos.append(medico)
+    def add_quarto(self, quarto):
+        self.quartos.append(quarto)
 
     def add_paciente(self, paciente):
         self.pacientes.append(paciente)
