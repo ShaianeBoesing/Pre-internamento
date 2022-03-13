@@ -45,9 +45,9 @@ def criar_quartos(hospital):
     hospital.add_quarto(quarto3)
     hospital.add_quarto(quarto4)
     quartos_existentes.append(quarto1.get_numero())
-    medicos_disponiveis.append(quarto2.get_numero())
-    medicos_disponiveis.append(quarto3.get_numero())
-    medicos_disponiveis.append(quarto4.get_numero())
+    quartos_existentes.append(quarto2.get_numero())
+    quartos_existentes.append(quarto3.get_numero())
+    quartos_existentes.append(quarto4.get_numero())
 
 def cadastrar_paciente(hospital):
     nome = interface.leiaString('Nome: ')
@@ -86,6 +86,8 @@ def cadastrar_paciente(hospital):
     while True:
         numeroQuarto = interface.leiaInt('Número do Quarto desejado: ')
         if numeroQuarto not in quartos_existentes:
+            print(numeroQuarto)
+            print(quartos_existentes)
             print('\033[31mERRO: Número do quarto inválido!\033[m')
         else:
             quarto = hospital.get_quarto(numeroQuarto)
