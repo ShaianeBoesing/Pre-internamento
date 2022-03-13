@@ -1,5 +1,4 @@
-import interface
-from funcoes_gerais import*
+from funcoes_gerais import *
 
 hospital = criar_hospital()
 
