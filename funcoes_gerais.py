@@ -98,6 +98,7 @@ def cadastrar_paciente(hospital):
     paciente = Paciente(id, nome, idade, sexo, cpf, rg, cep, email,
                     dataInternacao,telefone,nomeAcompanhante,telefoneAcompnhante,pagamento,medico, quarto)
     hospital.add_paciente(paciente)
+    quarto.set_paciente(paciente)
 
     print('\033[32mPré-Internamento realizado com sucesso! \033[m')
     return paciente
