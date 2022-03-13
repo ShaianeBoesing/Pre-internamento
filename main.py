@@ -12,15 +12,17 @@ while True:
     elif resposta==2:
         interface.cabecalho('Alterar Cadastro')
         paciente = buscar_paciente(lista_pacientes)
-        atualizar_cadastro_paciente(hospital, paciente)
+        if paciente:
+            atualizar_cadastro_paciente(hospital, paciente)
     elif resposta==3:
         interface.cabecalho ('Consultar Cadastro')
         paciente = buscar_paciente(lista_pacientes)
-        consultar_cadastro_paciente(paciente)
+        if paciente:
+            consultar_cadastro_paciente(paciente)
     elif resposta==4:
         interface.cabecalho('Excluir Cadastro')
         paciente = buscar_paciente(lista_pacientes)
-        if paciente != False:
+        if paciente:
             excluir_cadastro_paciente(hospital, paciente)
     elif resposta==5:
         interface.cabecalho('Saindo do Sistema...')
