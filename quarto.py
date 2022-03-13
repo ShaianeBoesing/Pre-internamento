@@ -1,5 +1,3 @@
-from paciente import Paciente
-
 class Quarto:
     def __init__(self, numero, situacao):
         self.numero = numero
