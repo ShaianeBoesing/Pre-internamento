@@ -94,7 +94,7 @@ def cadastrar_paciente(hospital):
             print('\033[31mERRO: Número do quarto inválido!\033[m')
         else:
             quarto = hospital.get_quarto(numeroQuarto)
-            while quarto.situacao != "Livre":
+            if quarto.situacao != "Livre":
                 print('\033[31mERRO: Quarto ocupado!\033[m')
             else:
                 quarto.set_situacao("Ocupado")
