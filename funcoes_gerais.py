@@ -5,8 +5,7 @@ from quarto import Quarto
 from medico import Medico
 from paciente import Paciente
 
-medicos_disponiveis = []
-quartos_existentes = []
+dic_hospital = {"medicos" : [], "quartos": []}
 
 def criar_hospital():
     hospital = Hospital()
@@ -30,9 +29,12 @@ def criar_medicos(hospital):
     hospital.add_medico(medico1)
     hospital.add_medico(medico2)
     hospital.add_medico(medico3)
+
+    medicos_disponiveis = []
     medicos_disponiveis.append(medico1.get_id())
     medicos_disponiveis.append(medico2.get_id())
     medicos_disponiveis.append(medico3.get_id())
+    dic_hospital['medicos'] = medicos_disponiveis
 
 def criar_quartos(hospital):
     quarto1 = Quarto(1, 'Livre')
@@ -44,10 +46,13 @@ def criar_quartos(hospital):
     hospital.add_quarto(quarto2)
     hospital.add_quarto(quarto3)
     hospital.add_quarto(quarto4)
+
+    quartos_existentes = []
     quartos_existentes.append(quarto1.get_numero())
     quartos_existentes.append(quarto2.get_numero())
     quartos_existentes.append(quarto3.get_numero())
     quartos_existentes.append(quarto4.get_numero())
+    dic_hospital['quartos'] = quartos_existentes
 
 def cadastrar_paciente(hospital):
     nome = interface.leiaString('Nome: ')
@@ -68,7 +73,7 @@ def cadastrar_paciente(hospital):
     sleep(1)
     hospital.ver_medicos()
     codigoMedico = interface.leiaInt('Código do Médico desejado: ')
-    while codigoMedico not in medicos_disponiveis:
+    while codigoMedico not in dic_hospital["medicos"]:
         print('\033[31mERRO: Código de médico inválido!\033[m')
         codigoMedico = interface.leiaInt('Código do Médico desejado: ')
 
@@ -85,13 +90,11 @@ def cadastrar_paciente(hospital):
 
     while True:
         numeroQuarto = interface.leiaInt('Número do Quarto desejado: ')
-        if numeroQuarto not in quartos_existentes:
-            print(numeroQuarto)
-            print(quartos_existentes)
+        if numeroQuarto not in dic_hospital["quartos"]:
             print('\033[31mERRO: Número do quarto inválido!\033[m')
         else:
             quarto = hospital.get_quarto(numeroQuarto)
-            while quarto.situacao != "Livre":
+            if quarto.situacao != "Livre":
                 print('\033[31mERRO: Quarto ocupado!\033[m')
             else:
                 quarto.set_situacao("Ocupado")
